@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 jobs:
-
   hadolint:
     runs-on: ubuntu-latest
     steps:
@@ -15,4 +14,5 @@ jobs:
 
       - name: Run Hadolint Analysis
         run: |
-         docker run --rm -i Hadolint/Hadolint < ./super_calculator/Dockerfile1
+          docker run --rm -i Hadolint/Hadolint < ./super_calculator/Dockerfile1
+
