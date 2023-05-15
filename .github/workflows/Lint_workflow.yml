@@ -26,4 +26,4 @@ jobs:
           
       - name: Run hadolint analysis
         run: |
-         docker run --rm -i hadolint/hadolint < ./super_calculator/Dockerfile1
+         docker run --rm -i Hadolint/Hadolint < ./super_calculator/Dockerfile1
