@@ -1,4 +1,4 @@
-name: Mygo_dock_releas
+name: Release_workflow
 
 on:
   push:
