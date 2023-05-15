@@ -23,5 +23,5 @@ jobs:
           go-version: ${{ matrix.go-version }}
           
       - name: Run tests
-        run: go test ./home/runner/work/macalculatore/macalculatore/
+        run: go test ./macalculatore/super_calculator/go.mod
 
