@@ -1,0 +1,17 @@
+name: "hadolint"
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs:
+  hadolint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run hadolint Analysis
+        run: |
+          docker run --rm -i hadolint/hadolint < ./super_calculator/Dockerfile1
