@@ -1,1 +1,29 @@
+name: Lint_workflow
 
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs: 
+ analyse-code:
+  runs-on: ubuntu-latest
+  steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Setup Super-Linter
+        if: github.event_name == 'pull_request'
+        uses: github/super-linter@v4
+        with:
+          VALIDATE_ALL_CODEBASE: True
+          
+      - name: Run Semgrep on Go files
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: "p/go"
+          path: "docker run --rm -i docker.io/semgrep/semgrep:v0.63.0 < ./super_calculator/Dockerfile"
+          
+      - name: Run hadolint analysis
+        run: |
+         docker run --rm -i hadolint/hadolint < ./super_calculator/Dockerfile
