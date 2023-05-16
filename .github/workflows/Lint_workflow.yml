@@ -15,7 +15,7 @@ jobs:
       - name: Run hadolint analysis
         working-directory: ./super_calculator
         run: |
-         docker run --rm -i hadolint/hadolint < Dockerfile >> log1.txt
+         docker run --rm -i hadolint/hadolint < Dockerfile 
         continue-on-error: true
         
       - name: Run Semgrep on Go files
