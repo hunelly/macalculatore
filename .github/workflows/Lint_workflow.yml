@@ -12,17 +12,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
           
+      - name: Run hadolint analysis
+        working-directory: ./super_calculator
+        run: |
+         docker run --rm -i hadolint/hadolint < Dockerfile >> log1.txt
+        continue-on-error: true
+        
       - name: Run Semgrep on Go files
         uses: returntocorp/semgrep-action@v1
         with:
           config: "p/go"
           path: "docker run --rm -i docker.io/semgrep/semgrep:v0.63.0 < ./super_calculator/Dockerfile"
-          
-      - name: Run hadolint analysis
-        working-directory: ./super_calculator
-        run: |
-         docker run --rm -i hadolint/hadolint < Dockerfile > log1.txt
-        continue-on-error: true
         
               
       - name: Setup Super-Linter
