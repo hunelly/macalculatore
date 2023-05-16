@@ -41,7 +41,7 @@ jobs:
           context: ./super_calculator
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/macalculatore:1.1.0
+            ${{ secrets.DOCKERHUB_USERNAME }}/macalculatore:1.1.1
 
       - name: Create GitHub release
         id: create_release
@@ -49,8 +49,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         with:
-          tag_name: 'v1.1.0'
-          release_name: 'Release 1.1.0'
+          tag_name: 'v1.1.1'
+          release_name: 'Release 1.1.1'
           draft: false
           prerelease: false
 
